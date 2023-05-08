@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -45,13 +47,15 @@ fun TaskManagerApp() {
 }
 
 @Composable
-fun AllCompletedScreen(modifier: Modifier = Modifier) {
-    val imagePainter = painterResource(R.drawable.ic_task_completed)
-
+fun AllCompletedScreen() {
     Column(
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
     ) {
+        val imagePainter = painterResource(R.drawable.ic_task_completed)
         Image(painter = imagePainter, contentDescription = null)
         Text(
             text = stringResource(R.string.all_tasks_completed),
@@ -61,7 +65,6 @@ fun AllCompletedScreen(modifier: Modifier = Modifier) {
         Text(
             text = stringResource(R.string.nice_work),
             fontSize = 16.sp,
-            modifier = modifier
         )
     }
 }
